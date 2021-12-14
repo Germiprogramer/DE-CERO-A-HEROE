@@ -160,6 +160,13 @@ while True:
         turno = 1
     printeartablero(tablero)
 
+printeartablero(tablero)
+if ENCERRADAx == True and ENCERRADAy == True and ENCERRADAz == True:
+    print("Ninguna pieza blanca se puede mover, han ganado las negras")
+elif ENCERRADAa == True and ENCERRADAb == True and ENCERRADAc == True:
+    print("Ninguna pieza negra se puede mover, han ganado las blancas")
+
+#curiosamente, al ejecutar, las piezas blancas aparecen como negras, y las negras como blancas
             
         
         
