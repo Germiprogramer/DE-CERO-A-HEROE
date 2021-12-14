@@ -7,6 +7,22 @@ def printeartablero(tablero):
         contador_indice += 1
     print("\n")
 
+def encerrada(FILA,COLUMNA):
+    if FILA == 0 and tablero[FILA+1][COLUMNA] != ' ':
+        fallo = True
+    elif FILA == 1:
+        if tablero[FILA+1][COLUMNA] != ' ':
+            tablero[FILA-1][COLUMNA] = tablero[FILA][COLUMNA]
+            tablero[FILA][COLUMNA] = ' '
+        else:
+            tablero[FILA+1][COLUMNA] = tablero[FILA][COLUMNA]
+            tablero[FILA][COLUMNA] = ' '
+    elif FILA == 2 and tablero[FILA-1][COLUMNA] != ' ':
+        fallo = True
+    else:
+        fallo = True
+    return fallo
+
 while True:
     tablero =  [
     [' ', ' ', ' '], 
@@ -29,11 +45,30 @@ while True:
         c = randint(0,2)
 
     #posicionpiezas
+    #blancas
     (tablero[x])[0] = chr(0x2656)
     (tablero[y])[1] = chr(0x2656)
     (tablero[z])[2] = chr(0x2656)
+    #negras
     (tablero[a])[0] = chr(0x265C)
     (tablero[b])[1] = chr(0x265C)
     (tablero[c])[2] = chr(0x265C)
 
     printeartablero(tablero)
+
+    ENCERRADAx = encerrada(x,0)
+    ENCERRADAy = encerrada(y,1)
+    ENCERRADAz = encerrada(x,2)
+    ENCERRADAa = encerrada(a,0)
+    ENCERRADAb = encerrada(b,1)
+    ENCERRADAc = encerrada(c,2)
+
+    if ENCERRADAx == True and ENCERRADAy == True and ENCERRADAz == True:
+        print("El jugador blanco no se puede mover, volvemos a generar el tablero")
+        pass
+    elif ENCERRADAa == True and ENCERRADAb == True and ENCERRADAc == True:
+        print("El jugador negro no se puede mover, volvemos a generar el tablero")
+        pass
+    else:
+        break
+
