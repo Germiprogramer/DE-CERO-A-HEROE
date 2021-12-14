@@ -23,6 +23,33 @@ def encerrada(FILA,COLUMNA):
         fallo = True
     return fallo
 
+def movimiento(FILA, COLUMNA):
+    if FILA == 0:
+        tablero[FILA+1][COLUMNA] = tablero[FILA][COLUMNA]
+        tablero[FILA][COLUMNA] = ' '
+    elif FILA == 1:
+        if tablero[FILA+1][COLUMNA] != ' ':
+            tablero[FILA-1][COLUMNA] = tablero[FILA][COLUMNA]
+            tablero[FILA][COLUMNA] = ' '
+        else:
+            tablero[FILA+1][COLUMNA] = tablero[FILA][COLUMNA]
+            tablero[FILA][COLUMNA] = ' '
+    elif FILA == 2:
+        tablero[FILA-1][COLUMNA] = tablero[FILA][COLUMNA]
+        tablero[FILA][COLUMNA] = ' '
+
+def cambio(FILA, COLUMNA):
+    if FILA == 0:
+        FILA += 1
+    elif FILA == 1:
+        if tablero[FILA+1][COLUMNA] != ' ':
+            FILA -= 1
+        else:
+            FILA += 1
+    elif FILA == 2:
+        FILA -= 1
+    return FILA
+
 while True:
     tablero =  [
     [' ', ' ', ' '], 
