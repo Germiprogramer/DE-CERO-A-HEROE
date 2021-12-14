@@ -1,7 +1,14 @@
 from random import randint
 
+def printeartablero(tablero):
+    contador_indice=0
+    for tablero[contador_indice] in tablero:
+        print(tablero[contador_indice])
+        contador_indice += 1
+    print("\n")
+
 while True:
-    tableroajedrez =  [
+    tablero =  [
     [' ', ' ', ' '], 
     [' ', ' ', ' '],
     [' ', ' ', ' '], 
@@ -22,9 +29,11 @@ while True:
         c = randint(0,2)
 
     #posicionpiezas
-    (tableroajedrez[x])[0] = chr(0x2656)
-    (tableroajedrez[y])[1] = chr(0x2656)
-    (tableroajedrez[z])[2] = chr(0x2656)
-    (tableroajedrez[a])[0] = chr(0x265C)
-    (tableroajedrez[b])[1] = chr(0x265C)
-    (tableroajedrez[c])[2] = chr(0x265C)
+    (tablero[x])[0] = chr(0x2656)
+    (tablero[y])[1] = chr(0x2656)
+    (tablero[z])[2] = chr(0x2656)
+    (tablero[a])[0] = chr(0x265C)
+    (tablero[b])[1] = chr(0x265C)
+    (tablero[c])[2] = chr(0x265C)
+
+    printeartablero(tablero)
