@@ -99,3 +99,67 @@ while True:
     else:
         break
 
+turno = randint(0,1)
+
+while True:
+    if turno == 1:
+        if ENCERRADAx == False and ENCERRADAa == False:
+            movimiento(x,0)
+            x = cambio(x,0)
+            ENCERRADAa = encerrada(a,0)
+        elif ENCERRADAy == False and ENCERRADAb == False:
+            movimiento(y,1)
+            y = cambio(y,1)
+            ENCERRADAy = encerrada(y,1)
+        elif ENCERRADAz == False and ENCERRADAc == False:
+            movimiento(z,2)
+            z = cambio(z,2)
+            ENCERRADAz = encerrada(z,2)
+        elif ENCERRADAx == False:
+            movimiento(x,0)
+            x = cambio(x,0)
+            ENCERRADAa = encerrada(a,0)
+        elif ENCERRADAy == False:
+            movimiento(y,1)
+            y = cambio(y,1)
+            ENCERRADAb = encerrada(b,1)
+        elif ENCERRADAz == False:
+            movimiento(z,0)
+            z = cambio(z,0)
+            ENCERRADAc = encerrada(c,0)
+        else:
+            break
+        turno = 0
+    elif turno == 0:
+        if ENCERRADAa == False and ENCERRADAx == False:
+            movimiento(a, 0)
+            a = cambio(a, 0)
+            ENCERRADAx = encerrada(x, 0)
+        elif ENCERRADAb == False and ENCERRADAy == False:
+            movimiento(b, 1)
+            b = cambio(b, 1)
+            ENCERRADAy = encerrada(y, 1)
+        elif ENCERRADAc == False and ENCERRADAz == False:
+            movimiento(c, 2)
+            c = cambio(c, 2)
+            ENCERRADAz = encerrada(z, 2)
+        elif ENCERRADAa == False:
+            movimiento(a, 0)
+            a = cambio(a, 0)
+            ENCERRADAx = encerrada(x, 0)
+        elif ENCERRADAb == False:
+            movimiento(b, 1)
+            b = cambio(b, 1)
+            ENCERRADAy = encerrada(y, 1)
+        elif ENCERRADAc == False:
+            movimiento(c, 2)
+            c = cambio(c, 2)
+            ENCERRADAc = encerrada(z, 2)
+        else:
+            break
+        turno = 1
+    printeartablero(tablero)
+
+            
+        
+        
