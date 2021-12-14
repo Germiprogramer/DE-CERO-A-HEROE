@@ -1,32 +1,31 @@
 from random import randint
 
+def encerrada(FILA, COLUMNA):
+    if FILA == 0 and tablero[FILA + 1][COLUMNA] != ' ':
+        fallo = True
+    elif FILA == 1:
+        if tablero[FILA + 1][COLUMNA] != ' ' and tablero[FILA - 1][COLUMNA] != ' ':
+            fallo = True
+        else:
+            fallo = False
+    elif FILA == 2 and tablero[FILA - 1][COLUMNA] != ' ':
+            fallo = True
+    else:
+        fallo = False
+    return fallo
+
 def printeartablero(tablero):
-    contador_indice=0
+    contador_indice = 0
     for tablero[contador_indice] in tablero:
         print(tablero[contador_indice])
         contador_indice += 1
     print("\n")
 
-def encerrada(FILA,COLUMNA):
-    if FILA == 0 and tablero[FILA+1][COLUMNA] != ' ':
-        fallo = True
-    elif FILA == 1:
-        if tablero[FILA+1][COLUMNA] != ' ':
-            tablero[FILA-1][COLUMNA] = tablero[FILA][COLUMNA]
-            tablero[FILA][COLUMNA] = ' '
-        else:
-            tablero[FILA+1][COLUMNA] = tablero[FILA][COLUMNA]
-            tablero[FILA][COLUMNA] = ' '
-    elif FILA == 2 and tablero[FILA-1][COLUMNA] != ' ':
-        fallo = True
-    else:
-        fallo = True
-    return fallo
 
 def movimiento(FILA, COLUMNA):
     if FILA == 0:
-        tablero[FILA+1][COLUMNA] = tablero[FILA][COLUMNA]
-        tablero[FILA][COLUMNA] = ' '
+            tablero[FILA+1][COLUMNA] = tablero[FILA][COLUMNA]
+            tablero[FILA][COLUMNA] = ' '
     elif FILA == 1:
         if tablero[FILA+1][COLUMNA] != ' ':
             tablero[FILA-1][COLUMNA] = tablero[FILA][COLUMNA]
@@ -71,7 +70,6 @@ while True:
     while z == c:
         c = randint(0,2)
 
-    #posicionpiezas
     #blancas
     (tablero[x])[0] = chr(0x2656)
     (tablero[y])[1] = chr(0x2656)
@@ -83,50 +81,49 @@ while True:
 
     printeartablero(tablero)
 
-    ENCERRADAx = encerrada(x,0)
-    ENCERRADAy = encerrada(y,1)
-    ENCERRADAz = encerrada(x,2)
-    ENCERRADAa = encerrada(a,0)
-    ENCERRADAb = encerrada(b,1)
-    ENCERRADAc = encerrada(c,2)
+    ENCERRADAx = encerrada(x, 0)
+    ENCERRADAy = encerrada(y, 1)
+    ENCERRADAz = encerrada(z, 2)
+    ENCERRADAa = encerrada(a, 0)
+    ENCERRADAb = encerrada(b, 1)
+    ENCERRADAc = encerrada(c, 2)
 
     if ENCERRADAx == True and ENCERRADAy == True and ENCERRADAz == True:
-        print("El jugador blanco no se puede mover, volvemos a generar el tablero")
+        print("El jugador blanco no se puede mover, volvemos a crear el tablero")
         pass
     elif ENCERRADAa == True and ENCERRADAb == True and ENCERRADAc == True:
-        print("El jugador negro no se puede mover, volvemos a generar el tablero")
+        print("El jugador negro no se puede mover, volvemos a crear el tablero")
         pass
     else:
         break
 
-turno = randint(0,1)
-
+turno = randint(0, 1)
 while True:
     if turno == 1:
         if ENCERRADAx == False and ENCERRADAa == False:
-            movimiento(x,0)
-            x = cambio(x,0)
-            ENCERRADAa = encerrada(a,0)
+            movimiento(x, 0)
+            x = cambio(x, 0)
+            ENCERRADAa = encerrada(a, 0)
         elif ENCERRADAy == False and ENCERRADAb == False:
-            movimiento(y,1)
-            y = cambio(y,1)
-            ENCERRADAy = encerrada(y,1)
+            movimiento(y, 1)
+            y = cambio(y, 1)
+            ENCERRADAb = encerrada(b, 1)
         elif ENCERRADAz == False and ENCERRADAc == False:
-            movimiento(z,2)
-            z = cambio(z,2)
-            ENCERRADAz = encerrada(z,2)
+            movimiento(z, 2)
+            z = cambio(z, 2)
+            ENCERRADAc = encerrada(c, 2)
         elif ENCERRADAx == False:
-            movimiento(x,0)
-            x = cambio(x,0)
-            ENCERRADAa = encerrada(a,0)
+            movimiento(x, 0)
+            x = cambio(x, 0)
+            ENCERRADAa = encerrada(a, 0)
         elif ENCERRADAy == False:
-            movimiento(y,1)
-            y = cambio(y,1)
-            ENCERRADAb = encerrada(b,1)
+            movimiento(y, 1)
+            y = cambio(y, 1)
+            ENCERRADAb = encerrada(b, 1)
         elif ENCERRADAz == False:
-            movimiento(z,0)
-            z = cambio(z,0)
-            ENCERRADAc = encerrada(c,0)
+            movimiento(z, 2)
+            z = cambio(z, 2)
+            ENCERRADAc = encerrada(c, 2)
         else:
             break
         turno = 0
@@ -167,6 +164,5 @@ elif ENCERRADAa == True and ENCERRADAb == True and ENCERRADAc == True:
     print("Ninguna pieza negra se puede mover, han ganado las blancas")
 
 #curiosamente, al ejecutar, las piezas blancas aparecen como negras, y las negras como blancas
-            
         
         
