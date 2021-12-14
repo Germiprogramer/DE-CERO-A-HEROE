@@ -6,10 +6,6 @@ Stuart hará subpalabras a partir de consonantes.
 
 
 PALABRA = input("Elige una palabra: ")
-try:
-    PALABRA = str(PALABRA)
-except:
-    pass
 
 #vocales
 PUNTOS_KEVIN = 0
@@ -23,9 +19,13 @@ LISTAVOCALES = ["A","E","I","O","U","a","e","i","o","u"]
 for posicionletra in range(len(PALABRA)):
     if PALABRA[posicionletra] in LISTAVOCALES:
         PUNTOS_KEVIN += int(len(PALABRA)-posicionletra)
+        print(PALABRA[posicionletra:(len(PALABRA))])
+        print("descomponiendo esta cadena, kevin obtendra {} puntos".format(len(PALABRA)-posicionletra))
 
     elif PALABRA[posicionletra] not in LISTAVOCALES:
         PUNTOS_STUART += int(len(PALABRA)-posicionletra)
+        print(PALABRA[posicionletra:(len(PALABRA))])
+        print("descomponiendo esta cadena, stuart obtendra {} puntos".format(len(PALABRA)-posicionletra))
         
 print("los puntos de kevin son {}".format(PUNTOS_KEVIN))
 print("los puntos de stuart son {}".format(PUNTOS_STUART))
