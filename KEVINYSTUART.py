@@ -20,12 +20,12 @@ for posicionletra in range(len(PALABRA)):
     if PALABRA[posicionletra] in LISTAVOCALES:
         PUNTOS_KEVIN += int(len(PALABRA)-posicionletra)
         print(PALABRA[posicionletra:(len(PALABRA))])
-        print("descomponiendo esta cadena, kevin obtendra {} puntos".format(len(PALABRA)-posicionletra))
+        print("descomponiendo esta SUBcadena, kevin obtendra {} puntos".format(len(PALABRA)-posicionletra))
 
     elif PALABRA[posicionletra] not in LISTAVOCALES:
         PUNTOS_STUART += int(len(PALABRA)-posicionletra)
         print(PALABRA[posicionletra:(len(PALABRA))])
-        print("descomponiendo esta cadena, stuart obtendra {} puntos".format(len(PALABRA)-posicionletra))
+        print("descomponiendo esta SUBcadena, stuart obtendra {} puntos".format(len(PALABRA)-posicionletra))
         
 print("los puntos de kevin son {}".format(PUNTOS_KEVIN))
 print("los puntos de stuart son {}".format(PUNTOS_STUART))
